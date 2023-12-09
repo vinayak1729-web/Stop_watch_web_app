@@ -1,0 +1,73 @@
+.body{
+    color: aliceblue;
+    font-family: cursive;
+}
+.stopwatch{
+    width: 90%;
+    max-width: 600px;
+    background-image: linear-gradient(black,rgba(0,0,0,0.7));
+    background-size: cover;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+    color: aliceblue;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 20px;
+    box-shadow: 0 10 10px grey;
+    font-family: cursive;
+}
+.timer h1{
+    padding-top: 25px;
+    margin-top: 125px;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: cursive;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 25px;
+
+}
+.buttons img{
+    width: 50px;
+    margin: 0 20px;
+    cursor: pointer;
+
+}
+.lap h1{
+    font: size 10px;;
+  cursor: pointer;
+  text-align: left;
+  margin-left: 50px;
+  padding-bottom: 0;
+  margin-bottom: 5px;
+  font-family: cursive;
+}
+.lap h3{
+  text-align: left;
+  margin-left: 50px;
+  font-family: cursive;
+  margin-bottom: 20px;
+}
+.lap h1:hover{
+    color: orangered;
+}
+.instructions p{
+    text-align: left;
+    display: none;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.instructions h5{
+    cursor: pointer;
+    text-align: center;
+   
+}
+.instructions h5:hover{
+    color: orangered;
+}

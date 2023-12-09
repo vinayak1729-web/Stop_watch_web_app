@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOP WATCH</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 10px; margin-top: 50px; font-size: 70px; font-family: cursive;">STOP WATCH</h1>
+    <div class="stopwatch">
+        <div class="timer">
+            <h1 id="displaytimer">00:00:00</h1>
+        </div>
+        <div class="buttons">
+            <img src="images/stop.png" id="stop"alt="stop button"onclick="watchstop()">
+            <img src="images/start.png" id="start" alt="start button" onclick="watchstart()">
+            <img src="images/reset.png" alt="reset button" onclick="watchreset()">
+            
+        </div>
+        <div class="lap">
+            <h1 onclick="recordlap()">Record lap</h1>
+            <h3>laps</h3>
+            <ul id="laplist"></ul>
+        </div>
+        <div class="instructions">
+            <h5 id="usermanual">Instructions</h5>
+            <p id="instructions">
+                1. To start the stopwatch click to middle orange button. <br>
+                2. To stop the timer you can double click the start button or just stop the time by clicking button left to the start button. <br>
+                3. To reset the timer you can click to reset button which is on right side of the start button. <br>
+                4. To record laps , you can click to <b>Record lap</b> button which will show you laps. <br>
+                5. To close this instruction guide , double click to Instructions button. <br>
+                thankyou
+            </p>
+        </div>
+    </div>
+   <script>
+      let [seconds,minutes,hours]=[0,0,0];
+      let displaytimer=document.getElementById("displaytimer");
+      let timer=null;
+      let laplist=document.getElementById("laplist");
+      let instructions=document.getElementById("instructions");
+      let usermanual=document.getElementById("usermanual");
+      function stopwatch(){
+        seconds++;
+        if(seconds==60){
+            seconds=0;
+            minutes++;
+            if(minutes==60){
+                minutes=0;
+                hours++;
+            }
+        }
+        start.addEventListener("dblclick",function(){
+            watchstop();
+            start.innerHTML=stop;
+        })
+        let h = hours<10 ? "0"+ hours :hours;
+        let m = minutes<10 ? "0"+ minutes:minutes;
+        let s = seconds<10 ? "0"+ seconds :seconds;
+        displaytimer.innerHTML=h+":"+m+":"+s;
+      }
+
+      function watchstart(){
+        if(timer!==null){
+        clearInterval(timer);
+        }
+        timer=setInterval(stopwatch,1000);
+
+    }
+      function watchstop(){
+        clearInterval(timer);
+        timer=null;
+      }
+
+      function watchreset(){
+
+        clearInterval(timer);
+        [seconds,minutes,hours]=[0,0,0];
+        displaytimer.innerHTML="00:00:00";
+        resetlaplist();
+
+      }
+      function recordlap(){
+      let   laptime =displaytimer.innerHTML;
+      let  lapitem=document.createElement("li");
+      lapitem.textContent=laptime;
+      laplist.appendChild(lapitem);
+
+      }
+      function resetlaplist(){
+        laplist.innerHTML=" ";
+      }
+      usermanual.addEventListener("click",function displayinstruction(){
+        instructions.style.display="block";
+      })
+      usermanual.addEventListener("dblclick",function closeintruction(){
+        instructions.style.display="none";
+      })
+   </script>
+</body>
+</html>
