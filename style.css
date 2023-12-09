@@ -5,8 +5,11 @@
 .stopwatch{
     width: 90%;
     max-width: 600px;
-    background-image: linear-gradient(black,rgba(0,0,0,0.7));
-    background-size: cover;
+    /* background-image: linear-gradient(black,rgba(0,0,0,0.7));
+    background-size: cover; */
+    background: linear-gradient(to right, #ffcc00, #ff66b2, #4d94ff, #4dff4d);
+            background-size: 400% 100%;
+            animation: gradientAnimation 10s linear infinite;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -17,6 +20,17 @@
     border-radius: 20px;
     box-shadow: 0 10 10px grey;
     font-family: cursive;
+}
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .timer h1{
     padding-top: 25px;
